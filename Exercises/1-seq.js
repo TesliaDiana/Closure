@@ -1,5 +1,6 @@
 'use strict';
 
-const seq = (f) => (g) => (x) => 0;
-
+const seq = (cf) => (af) => typeof af === 'number'
+  ? cf(af)
+  : seq((acc) => cf(af(acc)));
 module.exports = { seq };
